@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import FileUpload from './FileUpload';
+import PresentationView from './PresentationView';
 import './App.css';
 
 function App() {
+  const [view, setView] = useState('upload');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div style={{ padding: '10px', backgroundColor: '#f0f0f0' }}>
+        <button 
+          onClick={() => setView('upload')} 
+          style={{ marginRight: '10px', padding: '10px 20px', backgroundColor: view === 'upload' ? '#667eea' : '#ddd', color: view === 'upload' ? 'white' : 'black', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
         >
-          Learn React
-        </a>
-      </header>
+          Risk Assessment
+        </button>
+        <button 
+          onClick={() => setView('presentation')} 
+          style={{ padding: '10px 20px', backgroundColor: view === 'presentation' ? '#667eea' : '#ddd', color: view === 'presentation' ? 'white' : 'black', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
+        >
+          Platform Overview
+        </button>
+      </div>
+      
+      {view === 'upload' ? <FileUpload /> : <PresentationView />}
     </div>
   );
 }

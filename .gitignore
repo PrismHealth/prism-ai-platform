@@ -1,0 +1,18 @@
+# Python
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/.env
+*.pkl
+
+# Node
+frontend/node_modules/
+frontend/build/
+frontend/.env
+
+# OS
+.DS_Store
+
+# Data
+*.csv
+
